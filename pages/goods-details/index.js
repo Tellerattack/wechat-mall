@@ -5,7 +5,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 
 Page({
   data: {
-    autoplay: true,
+    autoplay: false, //幻灯片不自动切换，以免影响视频播放
     interval: 3000,
     duration: 1000,
     goodsDetail:{},

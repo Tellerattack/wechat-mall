@@ -4,6 +4,9 @@
         <swiper class="swiper_box" 
                     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
             <block wx:for="{{goodsDetail.pics}}" wx:key="id">
+                <swiper-item wx:if="{{goodsDetail.basicInfo.videoId}}">
+                    <video src="{{videoMp4Src}}" autoplay="true" loop="true" style='width:100%;height:100%;'></video>
+                </swiper-item>
                 <swiper-item>
                     <image src="{{item.pic}}_m" class="slide-image" width="355" height="150" mode="aspectFit" lazy-load="true"/>
                 </swiper-item>
@@ -14,10 +17,10 @@
                 <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>  
             </block>  
         </view>  
-   </view>
+   </view><!--
    <view class="swiper-container" wx:if="{{goodsDetail.basicInfo.videoId}}">
         <video src="{{videoMp4Src}}" autoplay="true" loop="true" style='width:100%'></video>
-   </view>
+   </view>-->
    <view class="goods-info">
         <view class="goods-title">{{goodsDetail.basicInfo.name}}</view>
         <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 1}}">分享给好友，好友下单后可得{{goodsDetail.basicInfo.commission}}积分奖励</view>
