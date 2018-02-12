@@ -1,27 +1,29 @@
 /**index.wxss**/
-
+page{
+  background-color: #f9f9f9;
+}
 .container {
-  background-color: #F2f2f2;
+  background-color: #f9f9f9;
   min-height: 100%;
 }
 .swiper-container{
-  width: 750rpx;
+  width: 100%;
   position: relative;  
 }
 .swiper_box {
   width: 100%;
-  height:450rpx;
+  height:410rpx;
 }
 
 swiper-item image {
   width: 100%;
   display: inline-block;
   overflow: hidden;
-  height:450rpx;
+  height:410rpx;
 }
 .swiper-container .dots{  
   position: absolute;  
-  left: 0;  
+  left: 88%;  
   right: 0;  
   bottom: 20rpx;  
   display: flex;  
@@ -31,10 +33,10 @@ swiper-item image {
   margin: 0 8rpx;  
   width: 14rpx;  
   height: 14rpx;  
-  background: #fff;  
+  background: #fbbf41;  
   border-radius: 50%;  
   transition: all .6s;  
-  opacity: .5;
+  opacity: .1;
 }  
 .swiper-container .dots .dot.active{  
   width: 14rpx;  
@@ -43,9 +45,10 @@ swiper-item image {
 
 .type-navbar{
   white-space: nowrap;
-  height: 88rpx;
+  height: 150rpx;
   width: 100%;
   background-color: #fff;
+  margin-left: -15px;
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -53,19 +56,34 @@ swiper-item image {
   color: transparent;
 }
 .type-box{
-  width:160rpx;
+  width:150rpx;
+  height: 150rpx;
   box-sizing: content-box;
   font-size: 24rpx;
-  line-height: 84rpx;
+  line-height: 235rpx;
   text-align: center;
   display: inline-block;
   overflow: hidden;
 }
 .type-navbar-item{
-  border-bottom: 5rpx solid #fff;
+  border-bottom: 4rpx solid #fff;
+  position:absolute;
+  display: inline-block;
+  height: 146rpx;
+  color: #666;
 }
 .type-item-on{
-  border-bottom: 5rpx solid #46c01b;
+  border-bottom: 4rpx solid #fbbf41;
+  height: 146rpx;
+  color: #fbbf41;
+}
+.type-navbar-image{
+  width:40px;
+  height:40px;
+  display:block;
+  top:8px;
+  left: -2px;
+  position:absolute;
 }
 
 .goods-container{
@@ -73,41 +91,65 @@ swiper-item image {
   justify-content: space-between;  
   flex-wrap:wrap;
   box-sizing: content-box;
-  padding: 0rpx 25rpx;
+  padding: 20rpx;
+  width: 95%;
 }
 .goods-box{
-  width: 48%;
-  height: 450rpx;
+  width: 100%;
+  height: 320rpx;
   background-color: #fff;
   overflow: hidden;
-  margin-bottom: 24rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
 }
 .goods-box .img-box{
   width: 100%;
-  height: 310rpx;
+  height: 100%;
   overflow: hidden;
 }
 .goods-box .img-box image{
-   width: 339rpx;
-   height: 339rpx;
+   width: 100%;
+   height: 100%;
 }
 .goods-box .goods-title{
-  width: 280rpx;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 24rpx;
-  padding: 24rpx 0 0rpx 0;
-  color:#000;
-  margin-left: 24rpx;
+  width:50%;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  font-size:40rpx;
+  color:#fff;
+  position:absolute;
+  z-index:999;
+  margin:40px 0 0 0;
+  left:100px;
+  border-bottom:1px dashed rgba(255, 255, 255, 0.5);
+  padding:10px 0;
+  text-align:center;
+}
+.good-money{
+  position:absolute;
+  color:#fff;
+  left:38%;
+  margin:98px 0;
+  z-index:99;
+  font-size: 48rpx;
+}
+.title-opacity{
+  width:95%;
+  height:320rpx;
+  background-color:#000;
+  opacity:.35;
+  position:absolute;
+  z-index:10;
+  border-radius:10rpx;
 }
 .goods-box .goods-price{
-  width: 280rpx;
-  overflow: hidden;
-  font-size: 30rpx;
-  padding: 20rpx 0;
-  color:#e76251;
-  margin-left: 24rpx;
+  overflow:hidden;
+  font-size:36rpx;
+  padding:105px 0;
+  color:#c9c9c9;
+  margin-left:4rpx;
+  text-decoration:line-through;
 }
 .no-more-goods{
   text-align: center;
@@ -117,9 +159,10 @@ swiper-item image {
 }
 .type-container{
   width: 100%;
-  height: 88rpx;
+  height: 150rpx;
   background-color: #fff;
   overflow: hidden;
+  text-align: center;
 }
 .notice{
   display: flex;
@@ -152,7 +195,7 @@ swiper-item image {
   padding-left: 10rpx;
   font-size: 26rpx;
   overflow: hidden;
-  color: #e76251;
+  color: #e64340;
   width: 635rpx;
   height: 50rpx;
   line-height: 50rpx;
@@ -170,26 +213,24 @@ swiper-item image {
 }
 .coupons-scroll{
   white-space: nowrap;
+  height: 180rpx;
   width: 100%;
   background-color: #fff;
 }
-.coupons-item {
-  width:23%;
-  height:130rpx;
-  background-color:#ffffff;
-  background-image:url(https://cdn.it120.cc/apifactory/2018/01/27/12b45ba9ff143ee01ee534242f0a4eee.png);
-  background-repeat:no-repeat;
-  background-size:100% 100%;
-  box-sizing:content-box;
-  font-size:23rpx;
-  line-height:35rpx;
-  overflow:hidden;
-  color:#fff;
-  display:inline-block;
-  padding:10px 0px 0px 25px;
-  margin:5px 5px 0px 10px;
+.coupons-item{
+  width:300rpx;
+  height: 180rpx;
+  margin: 10rpx;
+  padding-top: 20rpx;
+  padding-left: 15rpx;
+  background-color: #f1a83b;
+  box-sizing: content-box;
+  font-size: 20rpx;
+  line-height: 35rpx;
+  overflow: hidden;
+  color: #fff;
+  display: inline-block;
 }
-
 
 .search-view{
   position:fixed;
@@ -237,4 +278,47 @@ swiper-item image {
   color:#fff;
   border:none;
   position: relative;
+}
+
+.zan-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+/* 优惠券弹出窗口 */
+.modal-box{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  background:rgba(0,0,0,0.6);
+  overflow:hidden;
+  z-index:9999;
+}
+.modal-body{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+.modal-content{
+  position:absolute;
+  top:20%;
+  left:20%;
+  z-index:999;
+}
+.fenxiang{
+  width:250px;
+  height:330px;
+}
+.knowBtnImg{
+  width:40px;
+  height:40px;
+  display:block;
+  margin:auto;
+  margin-top:10px;
 }

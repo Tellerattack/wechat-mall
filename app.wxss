@@ -10,3 +10,11 @@
 .wxParse-img {
   display: block !important;
 }
+/* app.json文件备份
+{
+  "pagePath": "pages/coupons/index",
+  "iconPath": "images/nav/youhui-off.png",
+  "selectedIconPath": "images/nav/youhui-on.png",
+  "text": "饭票"
+},
+*/

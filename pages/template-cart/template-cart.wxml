@@ -1,13 +1,15 @@
 <template name="no-goods">
     <view class="title-box">
-        碗里什么都没有～
+      <image class="kong-cat" src="../../images/kong-cat.png"></image>
+        <view style="margin-bottom:5px;">生活不止诗和远方</view>
+        <view>还有眼前这碗牛肉汤</view>
     </view>
-    <view class="to-index-btn" bindtap="toIndexPage">去点菜</view>
+    <view class="to-index-btn" bindtap="toIndexPage">找更多好吃的</view>
 </template>
 
 <template name="cart-goods-list">
     <view class="list-top">
-        <view class="label">想吃什么快放到碗里来～</view>
+        <view class="label">快到碗里来～</view>
         <view class="edit-btn" hidden="{{!saveHidden}}" bindtap="editTap">编辑</view>
         <view class="edit-btn" hidden="{{saveHidden}}" bindtap="saveTap">完成</view>
     </view>
@@ -40,7 +42,7 @@
             <view class="all-selected  {{allSelect?'active':''}}" bindtap="bindAllSelect">全选</view>
             <view class="total" hidden="{{noSelect}}">合计：¥ {{totalPrice}}</view>
         </view>
-        <view class="to-pay-btn {{noSelect?'no-select':''}}" hidden="{{!saveHidden}}" bindtap="toPayOrder">去结算</view>
+        <view class="to-pay-btn {{noSelect?'no-select':''}}" hidden="{{!saveHidden}}" bindtap="toPayOrder">买单</view>
         <view class="to-pay-btn {{noSelect?'no-select':''}}" hidden="{{saveHidden}}" bindtap="deleteSelected">删除</view>
     </view>
 </template>

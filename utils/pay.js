@@ -25,7 +25,7 @@ function wxpay(app, money, orderId, redirectUrl) {
           signType:'MD5',
           paySign:res.data.data.sign,
           fail:function (aaa) {
-            wx.showToast({title: '支付失败:' + aaa})
+            wx.showToast({title: '支付失败'})
           },
           success:function () {
             wx.showToast({title: '支付成功'})

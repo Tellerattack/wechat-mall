@@ -1,7 +1,7 @@
 @import "/wxParse/wxParse.wxss";
 
 .container {
-  background-color: #F2f2f2;
+  background-color: #f9f9f9;
   min-height: 100%;
   padding-bottom: 100rpx;
 }
@@ -11,15 +11,14 @@
 }
 .swiper_box {
   width: 100%;
-  height:565rpx;
+  height:566rpx;
 }
 
 swiper-item image {
-  width:100%;
-  overflow:hidden;
-  height:100%;
-  display:block;
-
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  height:566rpx;
 }
 .swiper-container .dots{  
   position: absolute;  
@@ -42,20 +41,21 @@ swiper-item image {
   opacity: .6;
 }
 .goods-info{
-  background-color: #fff;
-  padding: 25rpx 0;
-  margin-bottom: 20rpx;
-  width: 100%;
-  position: relative;
+  background-color:#fff;
+  padding:15rpx 0;
+  margin-bottom:24rpx;
+  width:95%;
+  position:absolute;
+  top:266px;
+  border-radius:10rpx;
 }
 
 .goods-info-fx {
   position: absolute;
   width: 50px;
-  height: 55px;
+  height: 50px;
   right: 0;
-  bottom:110rpx;
-
+  top: 0;
 }
 
 .goods-info-fx button {
@@ -86,26 +86,49 @@ swiper-item image {
   font-size: 10px;
   text-align: center;
 }
+.goods-info-fav{
+  position:absolute;
+  width:50px;
+  height:50px;
+  left:8px;
+  top:0;
+}
+.goods-info-fav image{
+  width:28px;
+  height:28px;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+  margin:10px 10px 0 5px;
+}
 .goods-info .goods-title{
   box-sizing: border-box;
-  padding: 0 40rpx;
+  padding: 0 20rpx;
   font-size: 40rpx;
-  line-height: 1.2;
-  color: #000;
-  margin-bottom: 18rpx;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 16rpx;
+  text-align: center;
 }
 .goods-info .goods-share{
   box-sizing: border-box;
   padding: 0 35rpx;
-  font-size: 25rpx;
-  line-height: 1.4;
-  color: #84d069;
+  font-size: 26rpx;
+  line-height: 1.5;
+  color: #999;
   margin-bottom: 20rpx;
+  text-align: center;
+}
+.goods-money{
+  text-align:center;
+  color:#f04f3a;
+  font-size:50rpx;
 }
 .goods-info .goods-price{
    box-sizing:border-box;
-   color:#e76251;
-   font-size: 50rpx;
+   color:#e64340;
+   font-size: 28rpx;
    font-weight: bold;
    width: 30%;
    float:left;
@@ -123,23 +146,52 @@ swiper-item image {
   margin-bottom: 28rpx;
   background: #fff url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 697rpx center;
   background-size: 18rpx auto;
+  margin-top: 115px;
 }
 .goods-des-info{
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #fff;
+  width:95%;
+  box-sizing:border-box;
+  background-color:#fff;
+  margin-top:90px;
+  border-radius:10rpx;
 }
 .label-title{
   font-size:28rpx;
   color:#000000;
   padding: 30rpx;
+  text-align:center;
 }
 .goods-text{
   padding: 0 10rpx;
   font-size:28rpx;
   color:#666666;
-  line-height: 56rpx;
   margin-bottom: 30rpx;
+  border-bottom:1px solid #f2f2f2;
+}
+.label-user{
+  width:55px;
+  height: 55px;
+  float:left;
+  border-radius:100px;
+  border:1px solid #f2f2f2;
+  margin-bottom:15px;
+  margin-left:15px;
+}
+.lable-reputa{
+  float:left;
+  margin:0 10px;
+  font-size:28rpx;
+  color:#666;
+  width: 76%;
+  padding:5px 0;
+}
+.lable-str{
+  margin-bottom:8rpx;
+  font-size:28rpx;
+  color:#999;
+}
+.lable-str text{
+  float:right;
 }
 .des-imgs{
   width:100%;
@@ -155,7 +207,7 @@ swiper-item image {
   bottom: 0;
   left: 0;
   display: flex;
-  box-shadow:0 0 8rpx 0 ;
+  box-shadow:0rpx 15rpx 15rpx 10rpx ;
 }
 .footer-box .contact {
   position: relative;
@@ -168,10 +220,10 @@ swiper-item image {
   text-align: center;
   padding-top: 26rpx;*/
   font-size: 20rpx;
-  color: #999999;
+  color: #008000;
   box-sizing: border-box;
-  background: url("https://cdn.it120.cc/apifactory/2018/01/24/11f3933168a9dacd633d27faa87043e8.png") no-repeat center 21rpx;
-  background-size: 55rpx auto;
+  background: url("https://cdn.it120.cc/apifactory/2018/02/07/91574bfc3ee9dbf1f0d2d230780f3815.png") no-repeat center 21rpx;
+  background-size: 50rpx auto;
 }
 .footer-box .shop-cart-btn {
   position: relative;
@@ -184,25 +236,26 @@ swiper-item image {
   font-size: 20rpx;
   color: #acacb7;
   box-sizing: border-box;
-  background: url("https://cdn.it120.cc/apifactory/2018/01/24/d34b1af5bdaa3eccb1cf35164df68a26.png") no-repeat center 21rpx; 
-  background-size: 44rpx auto;
+  background: url("https://cdn.it120.cc/apifactory/2018/02/07/5ebf84303d52916a6052927457def038.png") no-repeat center 21rpx; 
+  background-size: 60rpx auto;
 }
 .footer-box .shop-cart-btn .shop-num{
   position:absolute;
-  color:#fff;
-  left:54rpx;
-  top:19rpx;
-  background-color:#46c01b;
+  color:#ffffff;
+  left:50rpx;
+  top:18rpx;
+  background-color:#fbbf41;
   border-radius:100rpx;
-  width:32rpx;
-  height:32rpx;
+  width:40rpx;
+  height:40rpx;
+  font-size:26rpx;
 }
 .footer-box .join-shop-cart{
   text-align: center;
   width: 250rpx;
   height: 100%;
   line-height: 100rpx;
-  background-color: #FFB03B;
+  background-color: #fbbf41;
   color:#fff;
   font-size: 34rpx;
 }
@@ -211,7 +264,7 @@ swiper-item image {
   height: 100%;
   width: 250rpx;
   line-height: 100rpx;
-  background-color: #46c01b;
+  background-color: #ffa121;
   color:#fff;
   font-size: 34rpx;
 }
@@ -253,6 +306,7 @@ swiper-item image {
   height: 120rpx;
   overflow: hidden;
   margin-right: 26rpx;
+  border-radius:10rpx
 }
 .pop-img-box .goods-thumbnail{
   width: 120rpx;
@@ -263,13 +317,13 @@ swiper-item image {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size:26rpx;
-  color:#000000;
+  font-size:36rpx;
+  color:#333;
 }
 .pop-goods-price{
-  font-size:26rpx;
-  color:#e64340;
-  margin-top:20rpx; 
+  font-size:34rpx;
+  color:#f04f3a;
+  margin-top:8rpx; 
 }
 .pop-goods-close{
   width: 36rpx;
@@ -301,14 +355,15 @@ swiper-item image {
   margin: 0 20rpx 20rpx 0;
 }
 .size-label-box .label-item.active{
-  color: #e64340;
-  border: 1px solid #e64340;
+  color: #fbbf41;
+  border: 1px solid #fbbf41;
 }
 .buy-num-box{
    display: flex;
    justify-content: space-between;
    padding: 30rpx 30rpx 48rpx 0;
    margin-left: 30rpx; 
+   border-top: 1px solid #eee;
    margin-top: 30rpx;
    align-items: center;
 }
@@ -341,7 +396,7 @@ swiper-item image {
   line-height: 89rpx;
   font-size:34rpx;
   color:#ffffff;
-  background-color: #46c01b;
+  background-color: #fbbf41;
 }
 .buy-num-box .num-box .hui{
   background-color: #f5f5f9;

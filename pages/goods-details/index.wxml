@@ -1,12 +1,10 @@
 <import src="../../wxParse/wxParse.wxml" />
+
 <view class="container"> 
    <view class="swiper-container" wx:if="{{!goodsDetail.basicInfo.videoId}}">
         <swiper class="swiper_box" 
                     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
             <block wx:for="{{goodsDetail.pics}}" wx:key="id">
-                <swiper-item wx:if="{{goodsDetail.basicInfo.videoId}}">
-                    <video src="{{videoMp4Src}}" autoplay="true" loop="true" style='width:100%;height:100%;'></video>
-                </swiper-item>
                 <swiper-item>
                     <image src="{{item.pic}}_m" class="slide-image" width="355" height="150" mode="aspectFit" lazy-load="true"/>
                 </swiper-item>
@@ -17,55 +15,52 @@
                 <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>  
             </block>  
         </view>  
-   </view><!--
+   </view>
    <view class="swiper-container" wx:if="{{goodsDetail.basicInfo.videoId}}">
         <video src="{{videoMp4Src}}" autoplay="true" loop="true" style='width:100%'></video>
-   </view>-->
+   </view>
    <view class="goods-info">
+        <view class="goods-money">¥ {{selectSizePrice}}</view>
         <view class="goods-title">{{goodsDetail.basicInfo.name}}</view>
-        <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 1}}">分享给好友，好友下单后可得{{goodsDetail.basicInfo.commission}}积分奖励</view>
-    <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 2}}">分享给好友，好友下单后可得{{goodsDetail.basicInfo.commission}}元现金奖励</view>
-    <view class="goods-price" style="padding-left:45rpx;">¥ {{selectSizePrice}}</view>
-        <view class="goods-price" style="color:#999;font-size:22rpx;line-height:4;">已有{{goodsDetail.basicInfo.numberOrders}}人吃过</view>
-        <view class="goods-price" style="color:#999;font-size:22rpx;line-height:4;">共有{{goodsDetail.basicInfo.numberGoodReputation}}人觉得好吃</view>
+        <view class="goods-share" >{{goodsDetail.basicInfo.characteristic}}</view><!--
+        <view class="goods-price" style="color:#999;font-size:24rpx;">购买{{goodsDetail.basicInfo.numberOrders}}次</view>
+        <view class="goods-price" style="color:#999;font-size:24rpx;">共收到 {{goodsDetail.basicInfo.numberGoodReputation}} 次好评</view>-->
         <view class="goods-info-fx">
           <image src='../../images/qd.png' />
           <button open-type="share">分享</button>
-          <!--<text>分享有赏</text>-->
         </view>
-   </view><!--
-   <view wx:if="{{hasMoreSelect}}" class="row-arrow" bindtap="bindGuiGeTap">
-      {{selectSize}}
-   </view>-->
+        <view class="goods-info-fav" bindtap="fav">
+          <image src='../../images/fav.png' />
+        </view>
+   </view>
     <view class="goods-des-info">
         <view class="label-title">美食介绍</view>
         <view class="goods-text">
             <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
          </view>
     </view>
-    <view class="goods-des-info" style="margin-top:20rpx;" wx:if="{{reputation}}">
-        <view class="label-title" style="border-bottom:1px solid #eee;">吃货点评</view>
-        <view class="goods-text" style="margin-top:15rpx;" wx:for="{{reputation}}" wx:key="id">
-          <view style="width:100rpx;float:left;height:100rpx;">
-            <image style="width: 100rpx; height: 100rpx;" src="{{item.user.avatarUrl}}"></image>
+    <view class="goods-des-info" style="margin-top:8px;" wx:if="{{reputation}}">
+        <view class="label-title">吃货评价</view>
+        <view class="goods-text" wx:for="{{reputation}}" wx:key="id">
+          <view class="label-user">
+            <image style="width: 100%; height: 100%;display: block;" src="{{item.user.avatarUrl}}"></image>
           </view>
-          <view style="width:550rpx;float:left;margin-left:35rpx;border-bottom:1px solid #eee;">
-            <view><view style="font-size:30rpx;display:initial;color:#e76251;">({{item.goods.goodReputationStr}})</view>{{item.goods.goodReputationRemark}}</view>
-            <view style="color: #999999;font-size:24rpx;">{{item.goods.dateReputation}}</view>
+          <view class="lable-reputa">
+            <view class="lable-str">{{item.goods.goodReputationStr}}<text>{{item.goods.dateReputation}}</text></view>
+            <view>{{item.goods.goodReputationRemark}}</view>
           </view>
         </view>
     </view>
     <view class="footer-box">        
-        <view class="contact">
-          <contact-button style="opacity:0;position:absolute;" type="default-dark"  session-from="weapp" size="27"></contact-button>
-          <view style='position:absolute;bottom:10rpx;'>掌柜</view>
+        <view class="contact" bindtap="calling">
+          <view style='position:absolute;bottom:2px;color:#adadc3;'> 客服 </view>
         </view>
         <view class="shop-cart-btn" bindtap="goShopCar">
             <view class="shop-num">{{shopNum}}</view>
-            <view style='position:absolute;bottom:10rpx;'>饭碗</view>
+            <view style='position:absolute;bottom:2px;color:#fbbf41;'> 饭碗 </view>
         </view>
-        <view class="join-shop-cart" bindtap="toAddShopCar">放入碗里</view>
-        <view class="now-buy" bindtap="tobuy">直接下单</view>
+        <view class="join-shop-cart" bindtap="toAddShopCar">放入饭碗</view>
+        <view class="now-buy" bindtap="tobuy">立即下单</view>
    </view>
     <view class="show-popup" hidden="{{hideShopPopup}}" >
         <view class="popup-mask" bindtap="closePopupTap"></view>
@@ -101,10 +96,10 @@
                 </view>
              </view>  
              <view class="popup-join-btn" wx:if="{{shopType =='addShopCar'}}" bindtap="addShopCar">
-                放入碗里
+                放入饭碗
              </view>
              <view class="popup-join-btn" wx:if="{{shopType =='tobuy'}}" bindtap="buyNow">
-                直接下单
+                立即下单
              </view>                      
         </view>
     </view>

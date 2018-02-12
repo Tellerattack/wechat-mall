@@ -1,37 +1,85 @@
-.container {
-    background-color:#F2f2f2;
+/**index.wxss**/
+page{
+  background-color: #f9f9f9;
 }
-.coupons-list{
-    width: 100%;
-    background-color: #fff;
-    margin-top: 20rpx;
+.coupons{
+  margin-top:10rpx;
+  width: 95%;
 }
-
-.bottom-box{
-    position:fixed;
-    width: 100%;
-    bottom: 0;
-    font-size:28rpx;
-    color:#000000;
-    border-top: 1rpx solid #eee;
-    height:100rpx;
-    line-height: 100rpx;
-    background: #fff url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 705rpx center;
-}
-.bottom-box .add-btn{
-    margin-left: 30rpx;
-    padding-left: 70rpx;
-    background: url(https://cdn.it120.cc/images/weappshop/add-addr.png) no-repeat left center;
-    background-size: 40rpx auto;
+.coupons-scroll{
+  width: 100%;
+  margin-top:10px;
 }
 .coupons-item{
-  width:630rpx;
-  height: 158rpx;
-  margin: 10rpx;
-  padding: 20rpx 50rpx;
-  background-color: #46c01b;
-  font-size: 28rpx;
-  line-height: 50rpx;
-  border-radius:15rpx;
-  color: #fff;
+  width:98%;
+  height: 250rpx;
+  background-image: url(https://cdn.it120.cc/apifactory/2018/02/07/dd1121b3ad89f4dc7f3751979f9cbba6.png);
+  background-repeat:no-repeat;
+  background-size:100% 140px;
+  margin: 6rpx 0;
+  padding-top: 20rpx;
+  padding-left: 15rpx;
+  background-color: #f9f9f9;
+  box-sizing: content-box;
+  font-size: 20rpx;
+  line-height: 35rpx;
+  overflow: hidden;
+  color: #ee5a52;
+  display: inline-block;
+  border-radius: 10rpx;
+}
+.coupon-money{
+ font-size:48rpx;
+  margin:15px 0;
+  position:absolute;
+  left:23%;
+}
+.coupon-name{
+  font-size:40rpx;
+  margin:55px 0;
+  position:absolute;
+  left:23%;
+}
+.coupon-ico{
+  position:absolute;
+  width:80px;
+  height:80px;
+  right:4px;
+  margin:-7px 0;
+}
+.coupon-hold{
+  margin:90px 0;
+  color:#5d5d5d;
+  font-size:24rpx;
+  position:absolute;
+  left:23%;
+}
+.coupon-date{
+  margin:90px 0;
+  color:#5d5d5d;
+  font-size:24rpx;
+  position:absolute;
+  left:50%;
+}
+.bottom-box {
+  position:fixed;
+  width:100%;
+  bottom:0;
+  font-size:28rpx;
+  color:#000000;
+  border-top:1rpx solid #eee;
+  height:100rpx;
+  line-height:100rpx;
+  background:#fff url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 705rpx center;
+  background-size:15rpx auto;
+}
+.bottom-box .add-btn {
+  margin:2px 0px;
+  display:inline-block;
+  color:#333;
+}
+.fav-img-btn{
+  width:30px;
+  height:30px;
+  margin:0px 15px -6px 25px;
 }

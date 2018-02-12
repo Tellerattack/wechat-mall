@@ -3,45 +3,33 @@
 var app = getApp();
 Page({
   data: {
-    remind: '加载中',
-    angle: 0,
-    userInfo: {}
   },
-  goToIndex:function(){
+  
+  home: function () {
     wx.switchTab({
-      url: '/pages/index/index',
-    });
-  },
-  onLoad:function(){
-    var that = this
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync('mallName')
+      url: '../index/index'
     })
-    app.getUserInfo(function(userInfo){
+  },
+  onLoad: function () {
+    var that = this;
+    app.getUserInfo(function (userInfo) {
       that.setData({
         userInfo: userInfo
       })
-    })
-  },
-  onShow:function(){
-
-  },
-  onReady: function(){
-    var that = this;
-    setTimeout(function(){
-      that.setData({
-        remind: ''
-      });
-    }, 1000);
-    wx.onAccelerometerChange(function(res) {
-      var angle = -(res.x*30).toFixed(1);
-      if(angle>14){ angle=14; }
-      else if(angle<-14){ angle=-14; }
-      if(that.data.angle !== angle){
+    }),
+    wx.getStorage({
+      key: 'bgImage',
+      success: function (res) {
         that.setData({
-          angle: angle
-        });
+          bgImage: res.data
+        })
       }
-    });
+    }),
+    setTimeout(function () {
+      wx.switchTab({
+        url: '../index/index'
+      })
+    }, 3000
+    )
   }
 });

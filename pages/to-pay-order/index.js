@@ -137,18 +137,17 @@ Page({
         }
         // 配置模板消息推送
         var postJsonString = {};
-        postJsonString.keyword1 = { value: res.data.data.dateAdd, color: '#e76251' }
-        postJsonString.keyword2 = { value: res.data.data.amountReal + '元', color: '#e76251' }
-        postJsonString.keyword3 = { value: res.data.data.orderNumber, color: '#e76251' }
-        postJsonString.keyword4 = { value: '订单超时未支付关闭', color: '#e76251' }
-        postJsonString.keyword5 = { value: '如果您还想吃的话，可以重新下单哟～下单后请在30分钟内完成支付', color:'#e76251'}
+        postJsonString.keyword1 = { value: res.data.data.dateAdd, color: '#888888' }
+        postJsonString.keyword2 = { value: res.data.data.orderNumber, color: '#888888' }
+        postJsonString.keyword3 = { value: '超时未支付取消', color: '#f04f3a' }
+        postJsonString.keyword4 = { value: '您可以重新下单，下单后请在30分钟内完成支付', color:'#f04f3a'}
         app.sendTempleMsg(res.data.data.id, -1,
-          'QTitip5t4tr-gK9kJRj6K0P9tN2whvP4RW1kmzz4zDk', e.detail.formId,
+          'QTitip5t4tr-gK9kJRj6K7p0TkOBTgWGiKhcKabhxSE', e.detail.formId,
           'pages/index/index', JSON.stringify(postJsonString));
         postJsonString = {};
-        postJsonString.keyword1 = { value: '您预定的美食,丸子君已经开始配送了，请注意查收哟～', color: '#e76251' }
-        postJsonString.keyword2 = { value: res.data.data.orderNumber, color: '#e76251' }
-        postJsonString.keyword3 = { value: res.data.data.dateAdd, color: '#e76251' }
+        postJsonString.keyword1 = { value: '您预定的美食，丸子君已经开始配送，请注意查收（正常配送需要1～2小时左右）', color: '#f04f3a' }
+        postJsonString.keyword2 = { value: res.data.data.orderNumber, color: '#888888' }
+        postJsonString.keyword3 = { value: res.data.data.dateAdd, color: '#888888' }
         app.sendTempleMsg(res.data.data.id, 2,
           'M1VCMVmg6_Rz5ZCxBZpZGYsojOIfOxJt80Lo83OSzW8', e.detail.formId,
           'pages/order-details/index?id=' + res.data.data.id, JSON.stringify(postJsonString));

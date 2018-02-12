@@ -14,30 +14,6 @@
             </view>
         </view>
         <block wx:if="{{orderDetail.logistics}}">
-          <view wx:if="{{orderDetail.logisticsTraces}}" class="wuliu-box">
-              <view class="icon-box">
-                  <image class="icon" src="/images/order-details/icon-wuliu.png"></image>
-              </view>
-              <view class="right-text" bindtap="wuliuDetailsTap" data-id="{{orderDetail.orderInfo.id}}">
-                  <view class="order-number">快递单号：{{orderDetail.logistics.trackingNumber}}</view>
-                  <block wx:if="{{orderDetail.logisticsTraces}}">
-                  <view class="wuliu-text">{{orderDetail.logisticsTraces[orderDetail.logisticsTraces.length-1].AcceptStation}}</view>
-                  <view class="wuliu-date">{{orderDetail.logisticsTraces[orderDetail.logisticsTraces.length-1].AcceptTime}}</view>
-                  </block>
-              </view>
-              <view class="arrow-right">
-                  <image class="arrow" src="/images/arrow-right.png"></image>
-              </view>
-          </view><!--
-          <view wx:else class="wuliu-box">
-              <view class="icon-box">
-                  <image class="icon" src="/images/order-details/icon-wuliu.png"></image>
-              </view>
-              <view class="right-text">
-                  <view class="order-number">快递单号：{{orderDetail.logistics.trackingNumber}}</view>
-                  <view class="wuliu-text">暂无物流信息</view>
-              </view>
-          </view>-->
           <view class="address-sec">
               <view class="icon-box">
                   <image class="icon" src="/images/order-details/icon-address.png"></image>
@@ -73,27 +49,26 @@
             <view class="btn-row" wx:if="{{orderDetail.orderInfo.status==3}}">
                 
                   <view class="section section_gap">
-                    <view style="margin-top:35rpx;margin-bottom:35rpx;">评价：</view>
-                    <radio-group name="goodReputation{{index}}">
+                    <view style="margin-top:19px;margin-bottom:19px;display:inline-block;font-size:32rpx;color:#666;">评价：</view>
+                    <radio-group style="display:inline-block;" name="goodReputation{{index}}">
                       <label style="margin-right:35rpx;"><radio value="2" checked/>好评</label>
                       <label style="margin-right:35rpx;"><radio value="1"/>中评</label>
                       <label style="margin-right:35rpx;"><radio value="0"/>差评</label>
                     </radio-group>
                   </view>
-                  <view class="row-box" style="margin-top:35rpx">
-                      <view class="row-label">备注</view>
+                  <view class="row-box" style="margin:0 20px 0 10px;">
                       <input name="orderGoodsId{{index}}" value="{{item.id}}" style="display:none;"/>
-                      <textarea name="goodReputationRemark{{index}}" style="margin-top:35rpx;width:100%;" value="非常好吃～下次还要！" />
+                      <textarea name="goodReputationRemark{{index}}" style="width:100%; border:1px solid #eee; margin-bottom:30rpx; height:160rpx;padding:5px;" value="非常好吃😋" />
                   </view>
             </view>
             </block>
-            <view class="btn-row" wx:if="{{orderDetail.orderInfo.status==3}}">
-                <button class="confirm-btn" formType="submit">提交评价</button>
+            <view class="btn-row" style="border-top:none;" wx:if="{{orderDetail.orderInfo.status==3}}">
+                <button class="confirm-btn" formType="submit">立即评价</button>
             </view>
             </form>
             <form bindsubmit="confirmBtnTap" report-submit="true">
             <view class="btn-row" wx:if="{{orderDetail.orderInfo.status==2}}">
-                <button class="confirm-btn" formType="submit">确认收到</button>
+                <button class="confirm-btn" formType="submit">确认收货</button>
             </view>
             </form>
         </view>
@@ -111,16 +86,20 @@
         </view>
         <view class="goods-info">
             <view class="row-box">
-                <view class="row-label">订单金额</view>
+                <view class="row-label">商品金额</view>
                 <view class="right-text">¥ {{orderDetail.orderInfo.amount}}</view>
             </view>
             <view class="row-box">
-                <view class="row-label">配送费用</view>
-                <view class="right-text">+ ¥ {{orderDetail.orderInfo.amountLogistics}}</view>
+                <view class="row-label">配送费</view>
+                <view class="right-text">¥ {{orderDetail.orderInfo.amountLogistics}}</view>
             </view>
             <view class="row-box">
                 <view class="row-label">应付总额</view>
                 <view class="right-text">¥ {{orderDetail.orderInfo.amountReal}}</view>
             </view>
         </view>
+</view>
+<view class="bottom-box" bindtap="home">
+    <image class="fav-img-btn" src="../../images/nav/home-on.png"></image>
+    <view class="add-btn">回到首页</view>
 </view>

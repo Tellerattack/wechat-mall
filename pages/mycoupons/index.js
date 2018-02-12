@@ -30,9 +30,9 @@ Page({
       }
     })
   },
-  goBuy:function(){
-    wx.reLaunch({
-      url: '/pages/index/index'
+  home: function () {
+    wx.navigateTo({
+      url: "/pages/coupons/index"
     })
   }
 

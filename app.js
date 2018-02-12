@@ -14,6 +14,30 @@ App({
         }
       }
     })
+    // 获取首页启动背景
+    wx.request({
+      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/config/get-value',
+      data: {
+        key: 'bgImage'
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          wx.setStorageSync('bgImage', res.data.data.value);
+        }
+      }
+    })
+    // 获取新用户优惠券ID
+    wx.request({
+      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/config/get-value',
+      data: {
+        key: 'newcoupons'
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          wx.setStorageSync('newcoupons', res.data.data.value);
+        }
+      }
+    })
     wx.request({
       url: 'https://api.it120.cc/' + that.globalData.subDomain + '/score/send/rule',
       data: {
@@ -182,8 +206,8 @@ App({
   globalData:{
     userInfo:null,
     subDomain: "qing", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
-    version: "1.0.0",
-    shareProfile: '用心烹饪每一道菜' // 首页转发的时候话术
+    version: "1.1.0",
+    shareProfile: '用心做好每一道菜' // 首页转发的时候话术
   }
   /*
   根据自己需要修改下单时候的模板消息内容设置，可增加关闭订单、收货时候模板消息提醒；

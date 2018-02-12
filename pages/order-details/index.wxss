@@ -1,6 +1,6 @@
 page{
   min-height: 100%;
-  background-color: #F2f2f2;
+  background-color: #f9f9f9;
 }
 .container{
   min-height: 100%;
@@ -17,12 +17,12 @@ page{
   left: 0;
 }
 .sec-wrap .order-status{
-    width: 720rpx;
-    margin-left: 30rpx;
-    border-bottom: 1rpx solid #eee;
-    height: 140rpx;
-    display: flex;
-    align-items: center;
+  width:100%;
+  border-bottom:1rpx solid #f9f9f9;
+  height:110rpx;
+  display:flex;
+  align-items:center;
+  padding:0 30rpx 0 30rpx;
 }
 .order-status .icon-box{
     width: 80rpx;
@@ -44,18 +44,18 @@ page{
     margin-bottom: 10rpx;
 }
 .order-status .right-text .red{
-    color:#e64340;
+    color:#f04f3a;
 }
 .order-status .right-text .des{
     font-size:24rpx;
     color:#999; 
 }
 .address-sec{
-    width: 720rpx;
-    margin-left: 30rpx;
-    display: flex;
-    align-items: center;
-    padding: 30rpx 0;
+  width:100%;
+  margin-left:30rpx;
+  display:flex;
+  align-items:center;
+  padding:20rpx 0;
 }
 .address-sec .icon-box{
     width: 30rpx;
@@ -79,7 +79,6 @@ page{
     font-size:24rpx;
     color:#888888;
     line-height:36rpx;
-    height: 72rpx;
     overflow: hidden;
 }
 .wuliu-box{
@@ -132,17 +131,15 @@ page{
     margin-top: 20rpx;
 }
 .goods-list .list-title{
-    font-size: 28rpx;
-    color: #000;
-    padding: 30rpx 0 25rpx 30rpx;
+  font-size:28rpx;
+  color:#000;
+  padding:30rpx 0 25rpx 30rpx;
+  border-bottom:1px solid #f9f9f9;
 }
 .goods-list  .a-goods{
-    width: 720rpx;
-    margin-left: 30rpx;
-    display: flex;
-    /*justify-content: space-between;*/
-    border-top: 1px solid #eee;
-    padding: 30rpx 30rpx 30rpx 0;
+  width:100%;
+  display:flex;
+  padding:30rpx 0rpx 30rpx 30rpx;
 }
 .goods-list  .a-goods .img-box{
     width: 160rpx;
@@ -162,22 +159,25 @@ page{
     padding-top: 10rpx;
 }
 .goods-list  .btn-row{
-    width: 720rpx;
-    margin-left: 30rpx;
-    border-top: 1rpx solid #eee;
+  width:100%;
+}
+.section_gap{
+  padding-left:30rpx;
 }
 .confirm-btn{
-    background:#ffffff;
-    border:1rpx solid #e64340;
-    border-radius:6rpx;
-    width:164rpx;
-    height:60rpx;
-    line-height: 60rpx;
-    text-align: center;
-    margin: 20rpx 30rpx 20rpx auto;
-    font-size:26rpx;
-    color:#e64340;
-    text-align:center;
+  background:#fbbf41;
+  border:1rpx solid #fbbf41;
+  border-radius:6rpx;
+  width:164rpx;
+  height:60rpx;
+  line-height:60rpx;
+  text-align:center;
+  margin:20rpx 30rpx 20rpx auto;
+  font-size:26rpx;
+  color:#ffffff;
+}
+.confirm-btn::after{
+  border: none;
 }
 .a-goods .text-box .arow{
     display: flex;
@@ -291,4 +291,26 @@ page{
 .jiesuan-box .total{
     color: #e64340;
     text-align: right;
+}
+.bottom-box {
+  position:fixed;
+  width:100%;
+  bottom:0;
+  font-size:28rpx;
+  color:#000000;
+  border-top:1rpx solid #eee;
+  height:100rpx;
+  line-height:100rpx;
+  background:#fff url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 705rpx center;
+  background-size:15rpx auto;
+}
+.bottom-box .add-btn {
+  margin:2px 0px;
+  display:inline-block;
+  color:#333;
+}
+.fav-img-btn{
+  width:30px;
+  height:30px;
+  margin:0px 15px -6px 25px;
 }

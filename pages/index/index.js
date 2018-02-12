@@ -1,12 +1,14 @@
 //index.js
 //获取应用实例
-var app = getApp()
+var app = getApp();
+
 Page({
   data: {
+    flag: true,
     indicatorDots: true,
     autoplay: true,
-    interval: 3000,
-    duration: 1000,
+    interval: 9000,
+    duration: 500,
     loadingHidden: false , // loading
     userInfo: {},
     swiperCurrent: 0,  
@@ -22,6 +24,7 @@ Page({
     searchInput: '',
   },
 
+  
   tabClick: function (e) {
     this.setData({
       activeCategoryId: e.currentTarget.id
@@ -49,7 +52,7 @@ Page({
   },
   bindTypeTap: function(e) {
      this.setData({  
-        selectCurrent: e.index  
+        selectCurrent: e.index 
     })  
   },
   scroll: function (e) {
@@ -61,20 +64,46 @@ Page({
     // console.log('e.detail.scrollTop:'+e.detail.scrollTop) ;
     // console.log('scrollTop:'+scrollTop)
   },
+  hide: function () {//弹窗优惠券关闭按钮
+    this.setData({ flag: true })
+  },
+  newCoupon: function () {//用户自主领取优惠券
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/discounts/fetch',
+      data: {
+        id: wx.getStorageSync('newcoupons'),//优惠券id
+        token: app.globalData.token
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          wx.showToast({
+            title: '成功领取',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
   onLoad: function () {
     var that = this
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync('mallName')
-    })
-    /*
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
+    //新用户领取饭票
+    setTimeout(function () {//index页面打开两秒后弹窗优惠券
+      wx.request({//识别用户是否可以领取优惠券
+        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/discounts/fetch',
+        data: {
+          id: wx.getStorageSync('newcoupons'),//优惠券id
+          token: app.globalData.token,
+          detect: true
+        },
+        success: function (res) {
+          if (res.data.code == 0) {
+            that.setData({ flag: false })
+          }
+        }
       })
-    })
-    */
+      }, 2000
+    ),
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/banner/list',
       data: {
@@ -97,7 +126,7 @@ Page({
     wx.request({
       url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/category/all',
       success: function(res) {
-        var categories = [{id:0, name:"想吃什么👉"}];
+        var categories = [{ id: 0, name: "推荐", icon:"https://cdn.it120.cc/apifactory/2018/02/03/8c3ddf25666056a6e7dcf2a0937b5b10.png"}];
         if (res.data.code == 0) {
           for (var i = 0; i < res.data.data.length; i++) {
             categories.push(res.data.data[i]);
@@ -182,23 +211,22 @@ Page({
         }
         if (res.data.code == 20003) {
           wx.showModal({
-            title: '错误',
-            content: '你领过了哦~',
+            title: '领取失败',
+            content: '您已经领过了哦~',
             showCancel: false
           })
-          return;
         }
         if (res.data.code == 30001) {
           wx.showModal({
-            title: '错误',
-            content: '您的积分不足',
+            title: '领取失败',
+            content: '您的积分不足～',
             showCancel: false
           })
           return;
         }
         if (res.data.code == 20004) {
           wx.showModal({
-            title: '错误',
+            title: '领取失败',
             content: '已过期~',
             showCancel: false
           })
@@ -206,7 +234,7 @@ Page({
         }
         if (res.data.code == 0) {
           wx.showToast({
-            title: '领取成功',
+            title: '成功领取饭票',
             icon: 'success',
             duration: 2000
           })
@@ -222,7 +250,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: wx.getStorageSync('mallName') + '——' + app.globalData.shareProfile,
+      title: wx.getStorageSync('mallName') + '—' + app.globalData.shareProfile,
       path: '/pages/index/index',
       success: function (res) {
         // 转发成功

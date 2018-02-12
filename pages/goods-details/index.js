@@ -5,7 +5,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 
 Page({
   data: {
-    autoplay: false, //幻灯片不自动切换，以免影响视频播放
+    autoplay: true,
     interval: 3000,
     duration: 1000,
     goodsDetail:{},
@@ -26,6 +26,11 @@ Page({
     shopType: "addShopCar",//购物类型，加入购物车或立即购买，默认为加入购物车
   },
 
+  calling: function () {
+    wx.makePhoneCall({
+      phoneNumber: '15999955508'
+    })
+  },
   //事件处理函数
   swiperchange: function(e) {
       //console.log(e.detail.current)
@@ -267,14 +272,14 @@ Page({
       if (!this.data.canSubmit) {
         wx.showModal({
           title: '提示',
-          content: '请选择商品规格！',
+          content: '您还没有选择规格～',
           showCancel: false
         })
       }
       this.bindGuiGeTap();
       wx.showModal({
         title: '提示',
-        content: '请先选择规格尺寸哦~',
+        content: '您还没有选择规格～',
         showCancel:false
       })
       return;
@@ -282,7 +287,7 @@ Page({
     if(this.data.buyNumber < 1){
       wx.showModal({
         title: '提示',
-        content: '购买数量不能为0！',
+        content: '购买数量不能为0',
         showCancel:false
       })
       return;
@@ -415,6 +420,31 @@ Page({
           that.setData({
             reputation: res.data.data
           });
+        }
+      }
+    })
+  },
+  fav: function () {
+    var that = this;
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/fav/add',
+      data: {
+        goodsId: this.data.goodsDetail.basicInfo.id,
+        token: app.globalData.token
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          wx.showToast({
+            title: '收藏成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }else{
+          wx.showModal({
+            title: '错误',
+            content: '收藏失败',
+            showCancel: false
+          })
         }
       }
     })

@@ -4,7 +4,7 @@
   font-size: 25rpx;
 }
 .title {
-  color:#e76251;
+  color:chocolate;
   font-size: 30rpx;
   margin-bottom: 30rpx;
 }

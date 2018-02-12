@@ -2,6 +2,7 @@
   "pages":[
     "pages/start/start",
     "pages/index/index",
+    "pages/coupons/index",
     "pages/goods-details/index",
     "pages/shop-cart/index",
     "pages/to-pay-order/index",
@@ -14,25 +15,27 @@
     "pages/my/index",
     "pages/notice/show",
     "pages/recharge/index",
+    "pages/fav-list/index",
     "pages/withdraw/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "清欢美味食光机",
+    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#46c01b",
+    "color": "#666666",
+    "selectedColor": "#333333",
     "borderStyle": "white",
-    "backgroundColor": "#ffffff",
+    "backgroundColor": "#fff",
     "list": [{
      "pagePath": "pages/index/index",
       "iconPath": "images/nav/home-off.png",
       "selectedIconPath": "images/nav/home-on.png",
-      "text": "点菜"
-    }, {
+      "text": "美食"
+    }, 
+    {
       "pagePath": "pages/shop-cart/index",
       "iconPath": "images/nav/cart-off.png",
       "selectedIconPath": "images/nav/cart-on.png",

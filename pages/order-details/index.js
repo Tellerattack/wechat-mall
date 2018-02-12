@@ -5,6 +5,11 @@ Page({
         goodsList:[],
         yunPrice:"0.00"
     },
+    home: function () {
+      wx.switchTab({
+        url: "/pages/index/index"
+      })
+    },
     onLoad:function(e){
       var orderId = e.id;
       this.data.orderId = orderId;
@@ -73,12 +78,12 @@ Page({
                     that.onShow();
                     // 模板消息，提醒用户进行评价
                     let postJsonString = {};
-                    postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#e76251' }
-                    let keywords2 = '您已确认收到，期待您的下次光临！';
+                    postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#888888' }
+                    let keywords2 = '您的美食已经送达，期待您的下次光临！';
                     if (app.globalData.order_reputation_score) {
-                      keywords2 += '立即好评，丸子君将赠送您' + app.globalData.order_reputation_score +'积分奖励，积分可以兑换优惠券哟～';
+                      keywords2 += '立即好评，将会有' + app.globalData.order_reputation_score +'积分奖励（20积分即可兑换饭票）';
                     }
-                    postJsonString.keyword2 = { value: keywords2, color: '#e76251' }
+                    postJsonString.keyword2 = { value: keywords2, color: '#f04f3a' }
                     app.sendTempleMsgImmediately('a8Ys76HE61rRyDm-T3uA3eYH4kpHWmLiWePdwSc2zos', formId,
                       '/pages/order-details/index?id=' + orderId, JSON.stringify(postJsonString));
                   }
@@ -122,7 +127,7 @@ Page({
             that.onShow();
             // 模板消息，通知用户已评价
             let postJsonString = {};
-            postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#173177' }
+            postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#888888' }
             let keywords2 = '感谢您的评价，期待您的再次光临！';
             if (app.globalData.order_reputation_score) {
               keywords2 += app.globalData.order_reputation_score + '积分奖励已发放至您的账户。';
